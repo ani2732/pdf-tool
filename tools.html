@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8662253235630377"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online PDF Tools – Merge, Split, Compress, Rotate, Convert | PDFMerger</title>
+    <meta name="description" content="A suite of free, browser-based PDF tools: merge, split, compress, rotate, and convert images to PDF. No uploads — your files never leave your device.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://freepdfmerger.org/tools.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Online PDF Tools – Merge, Split, Compress, Rotate, Convert">
+    <meta property="og:description" content="A suite of free, browser-based PDF tools: merge, split, compress, rotate, and convert images to PDF. No uploads — your files never leave your device.">
+    <meta property="og:url" content="https://freepdfmerger.org/tools.html">
+    <meta property="og:site_name" content="PDFMerger">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://unpkg.com/downloadjs@1.4.7"></script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: linear-gradient(135deg, #1a2980, #26d0ce); color: #333; min-height: 100vh; }
+        a { color: #1a2980; }
+        .topbar { background: rgba(255,255,255,0.97); padding: 12px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 50; }
+        .topbar-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .logo { font-size: 1.4rem; font-weight: 700; color: #1a2980; display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        .nav-links { display: flex; gap: 20px; flex-wrap: wrap; }
+        .nav-links a { color: #333; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { color: #1a2980; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header.hero { text-align: center; padding: 26px 0 14px; color: white; }
+        header.hero h1 { font-size: 2.2rem; margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        header.hero .subtitle { font-size: 1.08rem; opacity: 0.95; max-width: 680px; margin: 0 auto; line-height: 1.5; }
+        .tool-card { background: white; border-radius: 12px; padding: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); margin-top: 16px; }
+        .drop-area { border: 3px dashed #1a2980; border-radius: 10px; padding: 32px 20px; text-align: center; cursor: pointer; transition: all 0.3s; background: #f8f9ff; margin-bottom: 18px; }
+        .drop-area:hover, .drop-area.drag-over { background: #e6f0ff; border-color: #26d0ce; }
+        .drop-area i { font-size: 2.6rem; color: #26d0ce; margin-bottom: 10px; }
+        .drop-area h3 { margin-bottom: 6px; color: #1a2980; }
+        .drop-area p { color: #666; margin-bottom: 14px; }
+        .file-input { display: none; }
+        .btn { background: linear-gradient(to right, #1a2980, #26d0ce); color: white; border: none; padding: 11px 22px; font-size: 0.98rem; border-radius: 50px; cursor: pointer; transition: all 0.3s; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(26,41,128,0.3); }
+        .btn:hover { transform: translateY(-2px); }
+        .btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+        .btn-secondary { background: #6c757d; }
+        .options { background: #f8f9ff; border-radius: 10px; padding: 16px 18px; margin: 14px 0; }
+        .options label { display: block; font-weight: 600; color: #1a2980; margin: 10px 0 5px; }
+        .options input[type=text], .options select { width: 100%; max-width: 340px; padding: 9px 12px; border: 1px solid #ccd; border-radius: 8px; font-size: 0.97rem; font-family: inherit; }
+        .options .radio-row { display: flex; gap: 18px; flex-wrap: wrap; margin: 6px 0; }
+        .options .radio-row label { font-weight: 500; color: #333; margin: 0; display: flex; align-items: center; gap: 6px; cursor: pointer; }
+        .fileinfo { font-size: 0.95rem; color: #444; margin: 10px 0; }
+        .fileinfo strong { color: #1a2980; }
+        .file-list { margin: 12px 0; }
+        .file-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: #f8f9fa; border-radius: 8px; margin-bottom: 8px; border-left: 4px solid #26d0ce; }
+        .file-actions button { background: none; border: none; color: #6c757d; cursor: pointer; font-size: 1rem; padding: 4px 8px; }
+        .file-actions button:hover { color: #1a2980; }
+        .status { margin-top: 16px; padding: 13px; border-radius: 8px; text-align: center; display: none; }
+        .status.success { background: #d4edda; color: #155724; display: block; }
+        .status.error { background: #f8d7da; color: #721c24; display: block; }
+        .progress-container { margin-top: 16px; display: none; }
+        .progress-bar { height: 10px; background: #e9ecef; border-radius: 5px; overflow: hidden; }
+        .progress { height: 100%; background: linear-gradient(to right, #1a2980, #26d0ce); width: 0%; transition: width 0.3s; }
+        .action-buttons { display: flex; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+        .content-card { background: white; border-radius: 12px; padding: 30px; margin-top: 26px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); line-height: 1.7; }
+        .content-card h2 { color: #1a2980; margin-bottom: 14px; font-size: 1.5rem; }
+        .content-card h3 { color: #1a2980; margin-top: 20px; margin-bottom: 8px; font-size: 1.15rem; }
+        .content-card p { margin-bottom: 13px; color: #444; }
+        .content-card ul, .content-card ol { margin: 8px 0 14px 22px; color: #444; }
+        .content-card li { margin-bottom: 6px; }
+        footer { background: rgba(0,0,0,0.25); color: white; padding: 26px 20px; text-align: center; margin-top: 40px; font-size: 0.9rem; }
+        footer a { color: #26d0ce; }
+        @media (max-width: 600px) { header.hero h1 { font-size: 1.6rem; } .btn { width: 100%; justify-content: center; } }
+    </style>
+</head>
+<body>
+    <nav class="topbar">
+        <div class="topbar-inner">
+            <a href="index.html" class="logo"><i class="fas fa-file-pdf"></i> PDFMerger</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="tools.html">Tools</a>
+                <a href="guides.html">Guides</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy-policy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero">
+            <h1>All PDF Tools</h1>
+            <p class="subtitle">Free, browser-based tools for everyday PDF tasks. No uploads, no signup — everything is processed privately on your device.</p>
+        </header>
+
+        <main>
+            <div class="tool-card">
+
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;">
+                <a href="index.html" style="text-decoration:none;display:block;background:#f8f9ff;border-left:4px solid #26d0ce;border-radius:10px;padding:20px;transition:box-shadow 0.2s;">
+                    <i class="fas fa-object-group" style="font-size:1.9rem;color:#1a2980;"></i>
+                    <h3 style="color:#1a2980;margin:10px 0 6px;font-size:1.1rem;">Merge PDF</h3>
+                    <p style="color:#444;font-size:0.94rem;margin:0;">Combine PDFs with a live page-by-page preview of the merged result.</p>
+                </a>
+                <a href="split-pdf.html" style="text-decoration:none;display:block;background:#f8f9ff;border-left:4px solid #26d0ce;border-radius:10px;padding:20px;transition:box-shadow 0.2s;">
+                    <i class="fas fa-cut" style="font-size:1.9rem;color:#1a2980;"></i>
+                    <h3 style="color:#1a2980;margin:10px 0 6px;font-size:1.1rem;">Split PDF</h3>
+                    <p style="color:#444;font-size:0.94rem;margin:0;">See every page, click the ones you want, and extract them — or split all pages into separate files.</p>
+                </a>
+                <a href="compress-pdf.html" style="text-decoration:none;display:block;background:#f8f9ff;border-left:4px solid #26d0ce;border-radius:10px;padding:20px;transition:box-shadow 0.2s;">
+                    <i class="fas fa-compress-alt" style="font-size:1.9rem;color:#1a2980;"></i>
+                    <h3 style="color:#1a2980;margin:10px 0 6px;font-size:1.1rem;">Compress PDF</h3>
+                    <p style="color:#444;font-size:0.94rem;margin:0;">Shrink oversized scans to meet upload limits, with a live before/after quality comparison.</p>
+                </a>
+                <a href="rotate-pdf.html" style="text-decoration:none;display:block;background:#f8f9ff;border-left:4px solid #26d0ce;border-radius:10px;padding:20px;transition:box-shadow 0.2s;">
+                    <i class="fas fa-sync-alt" style="font-size:1.9rem;color:#1a2980;"></i>
+                    <h3 style="color:#1a2980;margin:10px 0 6px;font-size:1.1rem;">Rotate PDF</h3>
+                    <p style="color:#444;font-size:0.94rem;margin:0;">See every page live and rotate the wrong ones with one click — the preview turns as you do.</p>
+                </a>
+                <a href="jpg-to-pdf.html" style="text-decoration:none;display:block;background:#f8f9ff;border-left:4px solid #26d0ce;border-radius:10px;padding:20px;transition:box-shadow 0.2s;">
+                    <i class="fas fa-images" style="font-size:1.9rem;color:#1a2980;"></i>
+                    <h3 style="color:#1a2980;margin:10px 0 6px;font-size:1.1rem;">JPG to PDF</h3>
+                    <p style="color:#444;font-size:0.94rem;margin:0;">Turn images into one PDF with a live thumbnail preview of the page order.</p>
+                </a>
+                </div>
+
+            </div>
+
+
+        <article class="content-card">
+            <h2>Free, Private PDF Tools</h2>
+            <p>Every tool on this site follows the same principle: <strong>your files never leave your device.</strong> Instead of uploading documents to a server for processing, these tools run entirely inside your web browser using open-source JavaScript libraries. That makes them safe for the documents people actually need to work with — bank statements, contracts, identity documents, tax filings, and medical records.</p>
+            <p>The tools are designed to work together. A typical workflow: <a href="jpg-to-pdf.html">convert phone photos to PDF</a>, <a href="rotate-pdf.html">fix any sideways pages</a>, <a href="index.html">merge everything into one file</a>, and <a href="compress-pdf.html">compress it</a> to meet an upload limit. For step-by-step walkthroughs of common tasks, see our <a href="guides.html">guides</a>.</p>
+            <p>No signup, no watermarks, no file limits beyond what your device's memory can handle. The site is supported by unobtrusive advertising, which keeps everything free.</p>
+        </article>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="y"></span> PDFMerger &middot; <a href="index.html">Home</a> &middot; <a href="tools.html">Tools</a> &middot; <a href="guides.html">Guides</a> &middot; <a href="privacy-policy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="contact.html">Contact</a></p>
+    </footer>
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+    <script>
+
+    </script>
+</body>
+</html>
